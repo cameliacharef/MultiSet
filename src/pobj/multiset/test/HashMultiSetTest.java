@@ -18,10 +18,12 @@ public class HashMultiSetTest {
 		m.add("a");
 		m.add("a",5);
 		m.add("b",3);
+		//m.remove("b" ,0);
 	}
 	
 	@Test 
 	public void test1() {
 		assertEquals(6, m.count("a"));
+		//assertEquals(3, m.count("b"));
 	}
 }
