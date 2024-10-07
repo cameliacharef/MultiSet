@@ -1,6 +1,7 @@
 package pobj.multiset;
 
 import java.util.*;
+import java.util.Iterator;
 
 public class HashMultiSet<T> implements MultiSet<T> {
 	private HashMap<T,Integer> map; // elem , nb occ
@@ -40,6 +41,7 @@ public class HashMultiSet<T> implements MultiSet<T> {
 	public boolean remove(Object e) {
 		return remove(e,1);
 	}
+	// @SuppressWarnings("unchecked") // Pour retirer les warning
 	public boolean remove(Object e, int count) {
 		if (count < 1 || !map.containsKey(e))
 			return false;
@@ -69,5 +71,23 @@ public class HashMultiSet<T> implements MultiSet<T> {
 	
 	public int size() {
 		return size;
+	}
+	
+	/*public Iterator<T> iterator(){
+		return Collections.emptyIterator();
+	}*/
+	
+	private class HashMultiSetIterator implements Iterator<T>{
+		private HashMultiSet<T> current;
+		
+		@Override public boolean hasNext() {
+			
+		}
+		@Override public T next() {
+			if(current == null) throw new NoSuchElementException();
+			Integer occur = 
+			current = current.remove()
+			
+		}
 	}
 }
