@@ -128,6 +128,8 @@ public class CollectionTest {
         elements.add("b");
 
         multiSet.removeAll(elements);
+        // System.out.println("AAA : " + multiSet);
+
         assertEquals(1, multiSet.size());
         assertFalse(multiSet.contains("a"));
         assertFalse(multiSet.contains("b"));

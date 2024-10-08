@@ -10,5 +10,4 @@ public interface MultiSet<T> extends Iterable<T>, Collection<T>{//
 	public int count(T o);
 	public void clear();	
 	public int size();
-	@Override public boolean removeAll(Collection<?> c);
 }

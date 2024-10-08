@@ -116,9 +116,9 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 	@Override
 	public boolean removeAll(Collection<?> c) {
 	   boolean res = false; 
-	   //for(T elem : c) { // Faire avec  l'itérateur pour type -> ?
+	   for(Object elem : c) { 
 		   if(map.containsKey(elem)) {
-			   map.remove(elem);
+			   remove(elem);
 			   res = true;
 		   }
 	   }
@@ -127,14 +127,18 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 	
 	@Override
 	public boolean retainAll(Collection<?> c) {
-		boolean res = false; 
-		   for(T elem : c) {
-			   if(map.containsKey(elem)) {
-				   map.remove(elem);
-				   res = true;
-			   }
-		   }
-		   return res;
+		boolean res = false;
+	    Iterator<Map.Entry<T, Integer>> it = map.entrySet().iterator();
+	    
+	    while (it.hasNext()) {
+	        Map.Entry<T, Integer> entry = it.next();
+	        if (!c.contains(entry.getKey())) {
+	            size -= entry.getValue(); // Ajuste la taille
+	            it.remove(); // Retire complètement l'élément
+	            res = true;
+	        }
+	    }
+	    return res;
 	}
 
 
