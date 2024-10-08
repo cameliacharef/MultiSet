@@ -91,10 +91,10 @@ public class CollectionTest {
         List<String> elements = new ArrayList<>();
         elements.add("a");
         elements.add("b");
-        elements.add("c");
+        elements.add("c");elements.add("a");
 
         multiSet.addAll(elements);
-        assertEquals(3, multiSet.size());
+        assertEquals(4, multiSet.size());
         assertTrue(multiSet.contains("a"));
         assertTrue(multiSet.contains("b"));
         assertTrue(multiSet.contains("c"));
@@ -104,10 +104,12 @@ public class CollectionTest {
     public void testContainsAll() {
         multiSet.add("a");
         multiSet.add("b");
+        multiSet.add("a");
 
         List<String> elements = new ArrayList<>();
         elements.add("a");
         elements.add("b");
+        elements.add("a");
 
         assertTrue(multiSet.containsAll(elements));
 

@@ -113,5 +113,29 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 		}
 		return s;
 	}
+	@Override
+	public boolean removeAll(Collection<?> c) {
+	   boolean res = false; 
+	   //for(T elem : c) { // Faire avec  l'itérateur pour type -> ?
+		   if(map.containsKey(elem)) {
+			   map.remove(elem);
+			   res = true;
+		   }
+	   }
+	   return res;
+	}
+	
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		boolean res = false; 
+		   for(T elem : c) {
+			   if(map.containsKey(elem)) {
+				   map.remove(elem);
+				   res = true;
+			   }
+		   }
+		   return res;
+	}
+
 
 }
