@@ -1,9 +1,8 @@
 package pobj.multiset;
 
 import java.util.*;
-import java.util.Iterator;
 
-public class HashMultiSet<T> implements MultiSet<T> {
+public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T> {
 	private HashMap<T,Integer> map; // elem , nb occ
 	private int size; // taille multi ensbl 
 	
@@ -47,6 +46,7 @@ public class HashMultiSet<T> implements MultiSet<T> {
 			return false;
 		if(count((T) e) == 1 && count >= 1) {
 			map.remove((T) e);
+			size--;
 			return true;
 		}
 		
@@ -63,7 +63,7 @@ public class HashMultiSet<T> implements MultiSet<T> {
 		}
 		
 	}
-
+	
 	public void clear() {
 		map.clear();
 		size = 0;
@@ -73,21 +73,45 @@ public class HashMultiSet<T> implements MultiSet<T> {
 		return size;
 	}
 	
-	/*public Iterator<T> iterator(){
-		return Collections.emptyIterator();
-	}*/
+	@Override
+	public Iterator<T> iterator(){
+		return new HashMultiSetIterator();
+	}
 	
 	private class HashMultiSetIterator implements Iterator<T>{
-		private HashMultiSet<T> current;
+		private Map.Entry<T,Integer> current; // elem , nb occ
+		private Iterator<Map.Entry<T,Integer>> iterator = map.entrySet().iterator();
+		private int occur;
+		
 		
 		@Override public boolean hasNext() {
-			
+			return occur > 0 || iterator.hasNext(); //occ
 		}
 		@Override public T next() {
-			if(current == null) throw new NoSuchElementException();
-			Integer occur = 
-			current = current.remove()
+			if(!hasNext()) {
+				throw new NoSuchElementException();
+			}
+			
+			if(occur == 0) {
+				current = iterator.next();
+				occur = current.getValue();
+			}
+
+			occur--;
+			T elem = current.getKey();
+			return elem;
 			
 		}
 	}
+	
+	@Override public String toString() {
+		Iterator<Map.Entry<T, Integer>> iterator = map.entrySet().iterator();
+		String s = "";
+		while (iterator.hasNext()) {
+			Map.Entry<T, Integer> entry = iterator.next();
+			s+= entry.getKey() + ":" + entry.getValue()+"\n";
+		}
+		return s;
+	}
+
 }
