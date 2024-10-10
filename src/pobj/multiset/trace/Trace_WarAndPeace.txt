@@ -1,12 +1,12 @@
-0 : nicely
-1 : stonily
-2 : Ochákov
-3 : exhaled
-4 : Excellency
-5 : counters
-6 : carabineers
-7 : Aah
-8 : Beauche
-9 : exhales
+0 : the
+1 : and
+2 : to
+3 : of
+4 : a
+5 : in
+6 : he
+7 : that
+8 : his
+9 : was
 Temps wordcount HMS : 
-temps écoulé : 4 mn 15 s 442 millisecondes
+temps écoulé : 1 mn 55 s 348 millisecondes
