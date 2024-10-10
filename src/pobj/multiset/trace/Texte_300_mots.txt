@@ -1,0 +1,25 @@
+0 : savourer
+1 : changements
+2 : reviennent
+3 : période
+4 : orangées
+5 : ski
+6 : joie
+7 : gens
+8 : rassembler
+9 : peinte
+Temps wordcount HMS : 
+temps écoulé : 86 millisecondes
+0 : saisons
+1 : représentent
+2 : cycle
+3 : fascinant
+4 : transforme
+5 : paysage
+6 : influence
+7 : nos
+8 : vies
+9 : apporte
+
+Temps wordcount NMS :
+temps écoulé : 93 millisecondes

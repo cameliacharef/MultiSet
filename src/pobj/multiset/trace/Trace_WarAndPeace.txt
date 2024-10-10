@@ -1,0 +1,12 @@
+0 : nicely
+1 : stonily
+2 : Ochákov
+3 : exhaled
+4 : Excellency
+5 : counters
+6 : carabineers
+7 : Aah
+8 : Beauche
+9 : exhales
+Temps wordcount HMS : 
+temps écoulé : 4 mn 15 s 442 millisecondes

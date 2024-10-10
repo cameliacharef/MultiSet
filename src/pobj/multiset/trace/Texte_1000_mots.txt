@@ -1,0 +1,25 @@
+0 : régions
+1 : fin
+2 : danse
+3 : distinctes
+4 : être
+5 : perçu
+6 : allonger
+7 : oiseaux
+8 : avant
+9 : familiaux
+Temps wordcount HMS : 
+temps écoulé : 124 millisecondes
+0 : Quatre
+1 : Saisons
+2 : Beauté
+3 : Transformation
+4 : ont
+5 : toujours
+6 : fasciné
+7 : humanité
+8 : changeante
+9 : impact
+
+Temps wordcount NMS :
+temps écoulé : 245 millisecondes
