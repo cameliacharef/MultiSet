@@ -13,7 +13,8 @@ import java.util.Comparator;
 
 public class WordCount {
 	public static void wordcount(MultiSet<String> ms) throws IOException{
-		String file = "data/WarAndPeace.txt"; 
+		String file = "data/Monfichier2.txt"; 
+		//String file = "data/WarAndPeace.txt"; 
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String line;
 		List<String> liste = new ArrayList<String>();
@@ -32,6 +33,7 @@ public class WordCount {
 				comparator = new OccurrenceComparator<String>((NaiveMultiSet<String>) ms);
 			}
 			Collections.sort(liste, comparator);
+			Collections.reverse(liste);
 		}
 		br.close();
 		for(int i = 0; i < 10; i++)
@@ -43,6 +45,7 @@ public class WordCount {
 		wordcount(new HashMultiSet<String>());
 		System.out.println("Temps wordcount HMS : ");
 		chrono1.stop();
+		
 		Chrono chrono2 = new Chrono();
 		wordcount(new NaiveMultiSet<String>());
 		System.out.println("\nTemps wordcount NMS :");

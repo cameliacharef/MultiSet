@@ -1,25 +1,25 @@
-0 : savourer
-1 : changements
-2 : reviennent
-3 : période
-4 : orangées
-5 : ski
-6 : joie
-7 : gens
-8 : rassembler
-9 : peinte
+0 : de
+1 : et
+2 : Les
+3 : l
+4 : une
+5 : à
+6 : des
+7 : le
+8 : d
+9 : un
 Temps wordcount HMS : 
-temps écoulé : 86 millisecondes
-0 : saisons
-1 : représentent
-2 : cycle
-3 : fascinant
-4 : transforme
-5 : paysage
-6 : influence
-7 : nos
-8 : vies
-9 : apporte
+temps écoulé : 19 millisecondes
+0 : de
+1 : et
+2 : Les
+3 : l
+4 : des
+5 : à
+6 : une
+7 : d
+8 : le
+9 : air
 
 Temps wordcount NMS :
-temps écoulé : 93 millisecondes
+temps écoulé : 10 millisecondes

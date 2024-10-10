@@ -1,10 +1,7 @@
 package pobj.multiset;
 
 import java.util.*;
-/**
- * Cette classe représente 
- * @param <T>
- */
+
 public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T> {
 	private HashMap<T,Integer> map; // elem , nb occ
 	private int size; // taille multi ensbl 
@@ -21,11 +18,9 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 	}
 	
 	
-	@Override 
 	public int count(T o) {
 		return map.getOrDefault(o, 0);
 	}
-	
 	public boolean add(T e, int count) {
 		if (count < 1)
 			return false;
@@ -37,15 +32,15 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 		size += count;
 		return true;
 	}
-	@Override
+	
+	
 	public boolean add(T e) {
 		return add(e, 1);
 	}
-	@Override
 	public boolean remove(Object e) {
 		return remove(e,1);
 	}
-	@SuppressWarnings("unchecked") // Pour retirer les warning
+	// @SuppressWarnings("unchecked") // Pour retirer les warning
 	public boolean remove(Object e, int count) {
 		if (count < 1 || !map.containsKey(e))
 			return false;
@@ -68,12 +63,12 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 		}
 		
 	}
-	@Override
+	
 	public void clear() {
 		map.clear();
 		size = 0;
 	}
-	@Override
+	
 	public int size() {
 		return size;
 	}
@@ -109,8 +104,7 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 		}
 	}
 	
-	@Override 
-	public String toString() {
+	@Override public String toString() {
 		Iterator<Map.Entry<T, Integer>> iterator = map.entrySet().iterator();
 		String s = "";
 		while (iterator.hasNext()) {
@@ -146,11 +140,13 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 	    }
 	    return res;
 	}
-	
 	public List<T> elements(){
 		List<T> res = new ArrayList<T>();
 		for(T elem : map.keySet())
 			res.add(elem);
 		return res;
 	}
+
+
+
 }
