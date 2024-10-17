@@ -1,0 +1,6 @@
+chaîne1:12
+chaîne2:49
+chaîne3:13
+jour:2
+ciel:4
+maman:6
