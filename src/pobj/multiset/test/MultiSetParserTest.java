@@ -4,6 +4,7 @@ import pobj.multiset.InvalidMultiSetFormat;
 import pobj.multiset.MultiSet;
 import pobj.multiset.MultiSetParser;
 
+//
 public class MultiSetParserTest {
 	public static void main (String[] args) {
 		String fichier = "data/parse.txt";
