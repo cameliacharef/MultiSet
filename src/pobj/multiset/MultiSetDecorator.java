@@ -6,6 +6,10 @@ import java.util.List;
 
 public class MultiSetDecorator<T> implements MultiSet<T> {
 	private MultiSet<T> decorated;
+	
+	public MultiSetDecorator(MultiSet<T> decorated) {
+		this.decorated = decorated;
+	}
 
 	@Override
 	public boolean isEmpty() {
