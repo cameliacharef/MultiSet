@@ -34,6 +34,7 @@ public class WordCount {
 				if (word.equals("")) continue; // ignore les mots vides 
 				// TODO: traitement à faire pour le mot word 
 				ms.add(word);  // Ajoute le mot dans le multiset
+				// ms.add(word, -1); -> Exception in thread "main" java.lang.IllegalArgumentException: count negatif
 			} 
 			liste = ms.elements(); // Récupère les éléments du multiset
 			Comparator<String> comparator = null; // Initialisation du comparateur
@@ -51,7 +52,7 @@ public class WordCount {
         // Affiche les 10 mots les plus fréquents
 		for(int i = 0; i < 10; i++)
 			System.out.println(i + " : " + liste.get(i));
-		// System.out.println(ms);
+		System.out.println(ms);
 	}
 	 /**
      * Point d'entrée du programme. Teste la méthode wordcount avec deux implémentations de MultiSet

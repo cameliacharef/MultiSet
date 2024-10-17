@@ -48,15 +48,19 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
      * @param count le nombre d'occurrences à ajouter
      * @return true si l'ajout a réussi, false si le nombre d'occurrences est inférieur à 1
      */
-	public boolean add(T e, int count) {
-		if (count < 1)
+	public boolean add(T e, int count) throws IllegalArgumentException{
+		if (count < 0) throw new IllegalArgumentException("count negatif");
+ 		if (count < 1) {
+ 			assert isConsistent();
 			return false;
+ 		}
 		
 		int nb_occur = count(e); // Nombre actuel d'occurrences de l'élément
 	
 		map.put(e, nb_occur + count); // Met à jour le nombre d'occurrences
 		
 		size += count; // Met à jour la taille totale
+		assert isConsistent();
 		return true;
 	}
 	
@@ -89,15 +93,17 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
      * @return true si la suppression a réussi, false si l'élément n'est pas présent ou si le nombre est incorrect
      */
 	@SuppressWarnings("unchecked") // Pour retirer les warning
-	public boolean remove(Object e, int count) {
+	public boolean remove(Object e, int count) throws IllegalArgumentException {
+		if (count < 0) throw new IllegalArgumentException("count negatif");
 		if (count < 1 || !map.containsKey(e))
 			return false;
-		if(count((T) e) == 1 && count >= 1) {
+		if(count((T) e) <= count) {
+			size -= count((T) e);
 			map.remove((T) e);
-			size--; // Ajuste la taille totale du multiset
+			assert isConsistent();
 			return true;
 		}
-		
+
 		else { 
 			int nb_occur = count((T) e); // Nombre actuel d'occurrences de l'élément
 			int new_count = count;
@@ -107,9 +113,9 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 			}
 			map.put((T) e, nb_occur - new_count); // Met à jour le nombre d'occurrences restantes
 			size -= new_count; // Ajuste la taille totale du multiset
+			assert isConsistent();
 			return true;
 		}
-		
 	}
 	
 	/**
@@ -173,15 +179,18 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
      */
 	@Override public String toString() {
 		Iterator<Map.Entry<T, Integer>> iterator = map.entrySet().iterator();
-		String s = "";
+		StringBuilder b = new StringBuilder();
+		b.append("[");
 		while (iterator.hasNext()) {
 			Map.Entry<T, Integer> entry = iterator.next();
-			s+= entry.getKey() + ":" + entry.getValue()+"\n";
+			b.append(entry.getKey() + ":" + entry.getValue()+"; ");
 		}
-		return s;
+		b.append("]");
+		return b.toString();
+		
 	}
 	
-	 /**
+	/**
      * Supprime tous les éléments présents dans une collection donnée du multiset.
      * @param c la collection des éléments à supprimer
      * @return true si au moins un élément a été supprimé
@@ -196,6 +205,7 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 		   }
 	   }
 	   return res;
+	  
 	}
 	
 	 /**
@@ -231,7 +241,18 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 			res.add(elem);
 		return res;
 	}
-
+	public boolean isConsistent() {
+		int nbOccurences = 0;
+		
+		for(Integer count: map.values()) {
+			if(count <= 0) {
+				return false;
+			}
+			nbOccurences += count;
+		}
+		
+		return nbOccurences == size;
+	}
 
 
 }
