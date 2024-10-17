@@ -122,7 +122,12 @@ public class HashMultiSetTest2 {
 	    
 	    assertEquals(m.count("c"), 0); 
 	}
-
 	
-	
+	@Test
+	public void testCheck() {
+			MultiSet<String> unchecked = new HashMultiSet<>();
+			MultiSet<String> checked = new MultiSetDecorator<>(new HashMultiSet<>());
+			unchecked.add("x");
+			checked.add("y");
+	}
 }

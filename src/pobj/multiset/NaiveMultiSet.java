@@ -199,4 +199,15 @@ public class NaiveMultiSet<T> implements MultiSet<T>{
 		return res;
 	}
 
+	@Override
+	public boolean isConsistent() {
+		int nbOccurences = 0;
+		int size = liste.size();
+		
+		for(T elem : liste) 
+			nbOccurences ++;
+		
+		return nbOccurences == size;
+	}
+
 }
