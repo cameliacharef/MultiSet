@@ -183,7 +183,10 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 		b.append("[");
 		while (iterator.hasNext()) {
 			Map.Entry<T, Integer> entry = iterator.next();
-			b.append(entry.getKey() + ":" + entry.getValue()+"; ");
+			b.append(entry.getKey()).append(":").append(entry.getValue());
+			if (iterator.hasNext()) {
+	            b.append("; "); // Append only if there are more elements
+	        }
 		}
 		b.append("]");
 		return b.toString();
