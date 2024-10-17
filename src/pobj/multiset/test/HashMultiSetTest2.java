@@ -66,7 +66,7 @@ public class HashMultiSetTest2 {
 		m.add("b",5);
 		m.add("c",5);
 		m.add("a",5);
-		assertEquals(m.toString(), "[a:5; b:5; c:5; ]");
+		assertEquals(m.toString(), "[a:5; b:5; c:5]");
 	}
 	
 	@Test
