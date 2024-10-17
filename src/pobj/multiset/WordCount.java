@@ -24,8 +24,8 @@ public class WordCount {
      * @throws IOException si une erreur d'IO survient lors de la lecture du fichier
      */
 	public static void wordcount(MultiSet<String> ms) throws IOException{
-		//String file = "data/Monfichier2.txt"; 
-		String file = "data/WarAndPeace.txt";  // Le fichier texte à analyser 
+		String file = "data/Monfichier2.txt"; 
+		//String file = "data/WarAndPeace.txt";  // Le fichier texte à analyser 
 		BufferedReader br = new BufferedReader(new FileReader(file)); // Lecteur pour lire le fichier ligne par ligne
 		String line; // Pour stocker chaque ligne du fichier
 		List<String> liste = new ArrayList<String>(); // Liste pour stocker les mots triés
@@ -39,10 +39,10 @@ public class WordCount {
 			liste = ms.elements(); // Récupère les éléments du multiset
 			Comparator<String> comparator = null; // Initialisation du comparateur
 			if(ms instanceof HashMultiSet<String>) { 
-				comparator = new OccurrenceComparator<String>((HashMultiSet<String>) ms); // Utilise le comparateur adapté pour HashMultiSet
+				comparator = new OccurrenceComparator<String>(ms); // Utilise le comparateur adapté pour HashMultiSet
 			}
 			else {
-				comparator = new OccurrenceComparator<String>((NaiveMultiSet<String>) ms); // Utilise le comparateur adapté pour NaiveMultiSet
+				comparator = new OccurrenceComparator<String>(ms); // Utilise le comparateur adapté pour NaiveMultiSet
 			}
 			Collections.sort(liste, comparator); // Trie la liste des mots en fonction de leurs occurrences
 			Collections.reverse(liste); // Inverse la liste pour que les mots les plus fréquents soient en premier
@@ -64,13 +64,13 @@ public class WordCount {
 	public static void main(String args[]) throws IOException {
 		// Mesure du temps d'exécution pour HashMultiSet
 		Chrono chrono1 = new Chrono();
-		wordcount(new HashMultiSet<String>()); // Appelle wordcount avec HashMultiSet
+		wordcount(new MultiSetDecorator<>(new HashMultiSet<String>())); // Appelle wordcount avec HashMultiSet (MultiSetDecorator)
 		System.out.println("Temps wordcount HMS : ");
 		chrono1.stop(); // Arrête le chrono et affiche le temps écoulé
 		
 		 // Mesure du temps d'exécution pour NaiveMultiSet
 		Chrono chrono2 = new Chrono();
-		wordcount(new NaiveMultiSet<String>()); // Appelle wordcount avec NaiveMultiSet
+		wordcount(new MultiSetDecorator<>(new NaiveMultiSet<String>())); // Appelle wordcount avec NaiveMultiSet (MultiSetDecorator)
 		System.out.println("\nTemps wordcount NMS :");
 		chrono2.stop(); // Arrête le chrono et affiche le temps écoulé
 	}

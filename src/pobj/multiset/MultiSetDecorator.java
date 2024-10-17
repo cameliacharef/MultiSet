@@ -114,5 +114,10 @@ public class MultiSetDecorator<T> implements MultiSet<T> {
 	public boolean isConsistent() {
 		return decorated.isConsistent();
 	}
+	
+	@Override
+	public String toString() {
+		return decorated.toString();
+	}
 
 }

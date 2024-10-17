@@ -209,5 +209,10 @@ public class NaiveMultiSet<T> implements MultiSet<T>{
 		
 		return nbOccurences == size;
 	}
+	
+	@Override 
+	public String toString() {
+		return liste.toString();
+	}
 
 }

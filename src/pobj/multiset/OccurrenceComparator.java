@@ -18,9 +18,9 @@ public class OccurrenceComparator<T> implements Comparator<T> {
 	public OccurrenceComparator(MultiSet<T> ms) {
         	// Vérifie si l'instance est de type HashMultiSet ou NaiveMultiSet et l'initialise en conséquence
 			if(ms instanceof HashMultiSet)
-				multiSet = (HashMultiSet<T>)ms;
+				multiSet = ms;
 			else
-				multiSet = (NaiveMultiSet<T>)ms;
+				multiSet = ms;
 	}
 	
 	 /**
