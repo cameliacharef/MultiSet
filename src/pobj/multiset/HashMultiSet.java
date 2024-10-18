@@ -244,12 +244,15 @@ public class HashMultiSet<T> extends AbstractCollection<T> implements MultiSet<T
 			res.add(elem);
 		return res;
 	}
+	/**
+	 * Test si les valeurs stockées sont strictement positives et que la taille soit égale à la somme des occurrences de tous les objets
+	 */
 	public boolean isConsistent() {
 		int nbOccurences = 0;
 		
 		for(Integer count: map.values()) {
-			if(count <= 0) {
-				return false;
+			if(count <= 0) { // Condition val > 0
+				return false; 
 			}
 			nbOccurences += count;
 		}

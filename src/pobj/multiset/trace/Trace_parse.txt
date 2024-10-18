@@ -1,0 +1,5 @@
+[jour:2; ciel:4; maman:6; chaîne2:49; chaîne1:12; chaîne3:13]
+Ligne ne contient pas un seul ':' [Ljava.lang.String;@11028347
+Erreur : la chaine n'est pas un entier
+La valeur doit être positive
+Ligne ne contient pas un seul ':' [Ljava.lang.String;@27abe2cd

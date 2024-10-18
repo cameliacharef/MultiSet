@@ -3,6 +3,10 @@ package pobj.multiset;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Interface qui représente un ensemble d'objets T avec des occurrences multiples
+ * @param <T>
+ */
 public interface MultiSet<T> extends Iterable<T>, Collection<T>{
 	public boolean add(T e, int count);
 	public boolean add(T e);

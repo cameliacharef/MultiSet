@@ -198,7 +198,9 @@ public class NaiveMultiSet<T> implements MultiSet<T>{
 				res.add(elem); // Ajoute seulement les éléments uniques
 		return res;
 	}
-
+	/**
+	 * Test si la taille soit égale à la somme des occurrences de tous les objets
+	 */
 	@Override
 	public boolean isConsistent() {
 		int nbOccurences = 0;

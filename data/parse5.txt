@@ -1,0 +1,7 @@
+
+bonjour:12
+oui:49
+table:-7
+jour:2
+ciel:4
+poulet:6

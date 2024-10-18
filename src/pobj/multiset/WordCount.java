@@ -25,7 +25,7 @@ public class WordCount {
      */
 	public static void wordcount(MultiSet<String> ms) throws IOException{
 		String file = "data/Monfichier2.txt"; 
-		//String file = "data/WarAndPeace.txt";  // Le fichier texte à analyser 
+		// String file = "data/WarAndPeace.txt";  // Le fichier texte à analyser 
 		BufferedReader br = new BufferedReader(new FileReader(file)); // Lecteur pour lire le fichier ligne par ligne
 		String line; // Pour stocker chaque ligne du fichier
 		List<String> liste = new ArrayList<String>(); // Liste pour stocker les mots triés
@@ -52,6 +52,7 @@ public class WordCount {
         // Affiche les 10 mots les plus fréquents
 		for(int i = 0; i < 10; i++)
 			System.out.println(i + " : " + liste.get(i));
+		
 		System.out.println(ms);
 	}
 	 /**
